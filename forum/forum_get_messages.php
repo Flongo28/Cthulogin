@@ -12,10 +12,14 @@
                 '</div>';
     }
 
-    $topic = "DF";
-    $messages = readMessagesFromDatabase($topic);
+    function get_all_messages($topic){
+        $messages = readMessagesFromDatabase(trim($topic));
+        $string = "";
 
-    foreach ($messages as $message){
-        echo format_to_html($message) . "\n";
-    }
+        while ($message = $messages->fetchArray()){
+            $string .= format_to_html($message['Zeitpunkt'], $message['User'], $message['Inhalt']) . "\n";
+        }
+
+        return $string;
+    }    
 ?>

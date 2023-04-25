@@ -21,10 +21,10 @@
 
 <div class="container">
     <h1>Themen öffnen</h1>
-    <form method="POST" action="forum/forum_comments.php">
+    <form method="POST" action="forum_comments.php">
         <div class="form-group">
             <label for="delete">Forum öffnen:</label>
-            <select class="form-control" id="kuerzel_delete" name="kuerzel_delete">
+            <select class="form-control" id="forum_kuerzel" name="forum_kuerzel">
                 <?php require 'forum/forum_get_topics.php'; ?>
             </select>
         </div>

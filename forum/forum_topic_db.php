@@ -29,6 +29,7 @@
                     User TEXT NOT NULL,
                     Zeitpunkt DATETIME DEFAULT CURRENT_TIMESTAMP,
                     Inhalt TEXT NOT NULL,
+                    PRIMARY KEY (Topic, User, Zeitpunkt),
                     FOREIGN KEY (Topic) REFERENCES Topics(Kuerzel)
                 )";
         $db->exec($query);
@@ -104,8 +105,6 @@
         if(!$result) {
             die("Query error: " . $db->lastErrorMsg());
         }
-    
-        $db->close();
     }    
 
     function readMessagesFromDatabase($topic) {
@@ -119,6 +118,10 @@
 
         // Ergebnis der Abfrage in einem Array speichern
         $result = $stmt->execute();
+
+        if(!$result) {
+            die("Query error: " . $db->lastErrorMsg());
+        }
     
         // Ergebnis-Array zurückgeben
         return $result;

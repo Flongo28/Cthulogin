@@ -1,7 +1,7 @@
 <?php
     include 'forum_topic_db.php';
 
-    $kuerzel = $_POST['kuerzel'];
+    $kuerzel = str_replace(" ", "-", trim(strtolower($_POST['kuerzel'])));
     $new_topic = $_POST['topic'];
 
     session_start();

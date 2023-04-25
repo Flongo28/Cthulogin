@@ -28,15 +28,16 @@
 				<div class="chat border p-3">
 					<?php
 						include 'forum/forum_get_messages.php';
+						echo get_all_messages($_POST['forum_kuerzel']);
 					?>
 				</div>
 
-				<form>
+				<form method="POST" action="forum/forum_send_message.php">
 					<div class="form-group mt-3">
 						<label for="message">Nachricht:</label>
-						<textarea class="form-control" id="message" rows="3"></textarea>
+						<textarea class="form-control" id="message" name='message' rows="3"></textarea>
 					</div>
-					<input type="hidden" name="forum_kuerzel" value=<?$_POST['forum_kuerzel']?>>
+					<input type="hidden" name="forum_kuerzel" value= <?php echo '"' . $_POST["forum_kuerzel"] . '"'; ?>>
 					<button type="submit" class="btn btn-primary">Veröffentlichen</button>
 				</form>
 			</div>

@@ -14,7 +14,7 @@
                     echo <<<EOT
                         <li><a href="navigator.php">Browser</a></li>
                         <li><a href="forum.php">Forum</a></li>
-                        <li><a href="logout.php">Logout</a></li>
+                        <li><a href="login/logout.php">Logout</a></li>
                     EOT;
                 } else {
                     echo <<<EOT
