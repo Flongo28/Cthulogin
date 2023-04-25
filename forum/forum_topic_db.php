@@ -30,7 +30,9 @@
                     Zeitpunkt DATETIME DEFAULT CURRENT_TIMESTAMP,
                     Inhalt TEXT NOT NULL,
                     PRIMARY KEY (Topic, User, Zeitpunkt),
-                    FOREIGN KEY (Topic) REFERENCES Topics(Kuerzel)
+                    FOREIGN KEY (Topic) REFERENCES Topics(Kuerzel) 
+                        ON DELETE CASCADE
+                        ON UPDATE CASCADE
                 )";
         $db->exec($query);
     
@@ -68,7 +70,6 @@
         // SQL-Abfrage zum Löschen des Forums aus der Datenbank
         $query = "DELETE FROM Topics WHERE Kuerzel='$kuerzel'";
         $db->exec($query);
-        echo "Forum erfolgreich gelöscht";
     }
 
     function get_user_topics($creator)

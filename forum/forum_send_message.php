@@ -10,7 +10,7 @@
     if (isset($_SESSION['name'])) {
         $creator = $_SESSION['name'];
         post_message($topic, $creator, $message);
-        header('Location: ../forum_comments.php?forum_kuerzel="' . $topic. '"');
+        header('Location: ../forum_comments.php?forum_kuerzel=' . $topic);
     } else {
         echo "Username not set";
     }
