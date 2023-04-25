@@ -72,6 +72,26 @@
         $db->exec($query);
     }
 
+    function get_topics()
+    {
+        $db = get_forum_database();
+
+        $query = "SELECT * FROM topics";
+        $stmt = $db->prepare($query);
+        $result = $stmt->execute();
+
+        if(!$result) {
+            die("Query error: " . $db->lastErrorMsg());
+        }
+
+        $options = "";
+        while ($topic = $result->fetchArray(SQLITE3_ASSOC)) {
+            $options .= '<option value="' . $topic['Kuerzel'] . '">' . $topic['Name'] . '</option>';
+        }
+
+        return $options;
+    }
+
     function get_user_topics($creator)
     {
         $db = get_forum_database();
