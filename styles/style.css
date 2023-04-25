@@ -1,0 +1,257 @@
+/* Basisstyles */
+html  {
+  height: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    background-color: #fff;
+    margin: 0;
+    height: 100%;
+  }
+  
+  a {
+    color: #0070c9;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+    line-height: 1.2;
+    margin-top: 1.2em;
+    margin-bottom: 0.6em;
+  }
+  
+  p {
+    margin-top: 0;
+    margin-bottom: 1.2em;
+  }
+  
+  ul, ol {
+    margin-top: 0;
+    margin-bottom: 1.2em;
+    padding-left: 1.2em;
+  }
+  
+  li {
+    margin-bottom: 0.5em;
+  }
+  
+  /* Layout */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  /* Buttons */
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .btn-primary {
+    background-color: #0070c9;
+    color: #fff;
+  }
+  
+  .btn-primary:hover {
+    background-color: #005aa1;
+  }
+  
+  .btn-secondary {
+    background-color: #ccc;
+    color: #333;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #b3b3b3;
+  }
+  
+  /* Formularelemente */
+  .form-group {
+    margin-bottom: 1.2em;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.4em;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    line-height: 1.5;
+    box-sizing: border-box;
+  }
+  
+  select {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    line-height: 1.5;
+    box-sizing: border-box;
+    background-color: #fff;
+  }
+  
+  /* Tabellen */
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table th,
+  .table td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+    vertical-align: middle;
+  }
+  
+  .table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  .table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .table-hover tbody tr:hover {
+    background-color: #f2f2f2;
+  }
+
+  /* Header-Styles */
+  header {
+    background-color: #666;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-height: 50px;
+    margin: 0;
+  }
+
+  .logo img{
+    vertical-align: middle;
+  }
+
+  .header {
+    font-size: 32px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .nav-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-menu li {
+    margin-left: 20px;
+  }
+
+  .nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .nav-menu a:hover {
+    text-decoration: underline;
+  }
+
+  #logo {
+    position: left;
+    height: 100%;
+    max-height: 50px;
+    width: auto;
+  }
+
+  /*Regestierung*/
+
+  .content {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    border: 10px;
+  }
+
+  .nav-menu a:hover {
+    text-decoration: underline;
+  }
+
+  .register-form {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: #fff;
+    width: 400px;
+    max-width: 100%;
+  }
+  
+  .register-form h2 {
+    margin-top: 0;
+  }
+  
+  .register-form form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .register-form label {
+    margin-bottom: 5px;
+  }
+  
+  .register-form input[type="text"],
+  .register-form input[type="password"],
+  .register-form input[type="submit"] {
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .register-form input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    border-radius: 3px;
+    padding: 10px;
+  }
+  
+  .register-form input[type="submit"]:hover {
+    background-color: #0062cc;
+  }
