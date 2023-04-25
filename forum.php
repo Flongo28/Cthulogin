@@ -21,7 +21,7 @@
 
 <div class="container">
     <h1>Themen öffnen</h1>
-    <form method="POST" action="forum_comments.php">
+    <form method="GET" action="forum_comments.php">
         <div class="form-group">
             <label for="delete">Forum öffnen:</label>
             <select class="form-control" id="forum_kuerzel" name="forum_kuerzel">

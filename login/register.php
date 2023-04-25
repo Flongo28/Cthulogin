@@ -1,5 +1,6 @@
 <?php
     require_once 'login_data.php';
+    require_once '../verwaltung/links.php';
 
     if (is_username_taken($_POST['name'])){
         header("Location: ../register.php");
@@ -11,11 +12,9 @@
         if (save_login($_POST['name'], $_POST['password'])){
             session_start();
             $_SESSION['name'] = $_POST['name'];
-            header("Location: ../content.php");
+            header("Location: ../" . Links::CONTENT);
         } else {
-            header('Location: ../registersite.php');
+            header('Location: ../' . Links::REGISTER);
         }
-
-        header("Location: ../content.php");
     }
 ?>
