@@ -43,15 +43,6 @@
 		<div class="row">
 			<div class="col-12">
 				<h1>Chat <?php echo $_GET["forum_kuerzel"]; ?>:</h1>
-				<!-- <a href="#" class="bi bi-trash" data-toggle="modal" data-target="#deleteModal"><i class="bi bi-trash"></i></a> -->
-
-				<input type="hidden" id="forum_kuerzel" value= <?php echo '"' . $_GET["forum_kuerzel"] . '"'; ?>>
-				<div class="chat border p-3">
-					<?php
-						include 'forum/forum_get_messages.php';
-						echo get_all_messages($_GET['forum_kuerzel']);
-					?>
-				</div>
 
 				<form method="POST" action="forum/forum_send_message.php">
 					<div class="form-group mt-3">
@@ -61,6 +52,20 @@
 					<input type="hidden" name="forum_kuerzel" value= <?php echo '"' . $_GET["forum_kuerzel"] . '"'; ?>>
 					<button type="submit" class="btn btn-primary">Veröffentlichen</button>
 				</form>
+
+				<input type="hidden" id="forum_kuerzel" value= <?php echo '"' . $_GET["forum_kuerzel"] . '"'; ?>>
+				<div class="chat border p-3" id="message-container">
+					<?php
+						include 'forum/forum_get_messages.php';
+						echo get_all_messages($_GET['forum_kuerzel'], 5, 0);
+					?>
+				</div>
+
+				<div class="text-center mt-3">
+					<button id="load-more-button" class="btn btn-primary btn-lg">
+						Weitere Nachrichten laden
+					</button>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -69,5 +74,6 @@
 	<!-- jQuery CDN -->
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="forum/confirm_delete.js"></script>
+	<script src="forum/load_more_content.js"></script>
 </body>
 </html>

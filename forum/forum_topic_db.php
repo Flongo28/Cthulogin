@@ -128,14 +128,16 @@
         }
     }    
 
-    function readMessagesFromDatabase($topic) {
+    function readMessagesFromDatabase($topic, $limit, $offset) {
         // Verbindung zur Datenbank herstellen
         $db = get_forum_database();
     
         // SQL-Abfrage zum Auslesen aller Nachrichten
-        $query = "SELECT * FROM Messages WHERE Topic = :topic";
+        $query = "SELECT * FROM Messages WHERE Topic = :topic ORDER BY Zeitpunkt DESC LIMIT :limit OFFSET :offset";
         $stmt = $db->prepare($query);
         $stmt->bindValue(':topic', $topic, SQLITE3_TEXT);
+        $stmt->bindValue(':limit', $limit, SQLITE3_NUM);
+        $stmt->bindValue(':offset', $offset, SQLITE3_NUM);
 
         // Ergebnis der Abfrage in einem Array speichern
         $result = $stmt->execute();

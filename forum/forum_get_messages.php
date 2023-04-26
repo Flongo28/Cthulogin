@@ -12,8 +12,8 @@
                 '</div>';
     }
 
-    function get_all_messages($topic){
-        $messages = readMessagesFromDatabase(trim($topic));
+    function get_all_messages($topic, $limit, $offset){
+        $messages = readMessagesFromDatabase(trim($topic), $limit, $offset);
         $string = "";
 
         while ($message = $messages->fetchArray()){
