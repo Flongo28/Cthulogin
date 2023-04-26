@@ -28,13 +28,9 @@
         ?>
 
         <form action="navigator/upload.php" method="post" enctype="multipart/form-data">
-            <div class="row mb-3">
-                <div class="col-md-8">
-                    <input class="form-control" type="file" id="fileToUpload">
-                </div>
-                <div class="col-md-4">
-                    <input type="submit" class="btn btn-primary btn-block" value="Upload File" name="submit">
-                </div>
+            <div class="input-group mb-3">
+                <input type="file" class="form-control" id="fileToUpload" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                <button class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon04">Upload</button>
             </div>
         </form>
     </div>

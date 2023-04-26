@@ -19,7 +19,7 @@
                 <div class="form-group">
                   <label for="name">Name:</label>
                   <input type="text" class="form-control" id="name" name="name" required>
-                  <span id="errorShortName" style="color: red; display: none;">Die Eingabe ist zu kurz.</span>
+                  <span id="errorShortName" class="invalid-feedback">Die Eingabe ist zu kurz.</span>
                 </div>
 
                 <div class="form-group">
@@ -30,13 +30,13 @@
                 <div class="form-group">
                   <label for="password">Passwort:</label>
                   <input type="password" class="form-control" id="password" name="password" required>
-                  <span id="errorShortPassword" style="color: red; display: none;">Die Eingabe ist zu kurz.</span>
+                  <span id="errorShortPassword" class="invalid-feedback">Die Eingabe ist zu kurz.</span>
                 </div>
 
                 <div class="form-group">
                   <label for="password_wdh">Wiederhole Passwort:</label>
                   <input type="password" class="form-control" id="password_wdh" name="password_wdh" required>
-                  <span id="errorNotSamePW" style="color: red; display: none;">Die Passwörter sind nicht gleich.</span>
+                  <span id="errorNotSamePW" class="invalid-feedback">Die Passwörter sind nicht gleich.</span>
                 </div>
 
                 <button type="submit" class="btn btn-primary mt-3">Registrieren</button>
