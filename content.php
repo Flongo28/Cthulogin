@@ -1,11 +1,15 @@
-<?php require 'login/login_check.php'; ?>
+<?php 
+    require 'login/login_check.php'; 
+    require_once('verwaltung/links.php');
+?>
 
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
     <title>Cthulogin</title>
-    <link rel="stylesheet" href="styles/style.css">
+
+    <?php echo Links::get_all_html_docs(); ?>
   </head>
   <body>
     <?php 

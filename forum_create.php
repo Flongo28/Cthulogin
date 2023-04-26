@@ -1,4 +1,6 @@
-<?php require 'login/login_check.php'; ?>
+<?php 
+require 'login/login_check.php';
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,13 +8,7 @@
     <meta charset="UTF-8">
     <title>Themen erstellen/löschen</title>
 
-    <!-- Einbindung von Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-          crossorigin="anonymous">
-    
-    <!-- Css -->
-    <link rel="stylesheet" href="styles/style.css">
+    <?php echo Links::get_all_html_docs(); ?>
 </head>
 <body> 
 <?php 

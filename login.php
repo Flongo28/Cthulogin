@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8">
     <title>Cthulogin</title>
-    <link rel="stylesheet" href="styles/style.css">
+
+    <?php include 'verwaltung/links.php'; echo Links::get_all_html_docs(); ?>
   </head>
   <body>
     <?php 

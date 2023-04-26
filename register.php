@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8">
     <title>Registrierung</title>
-    <link rel="stylesheet" href="styles/style.css">
-    <script src="login/registersite.js"></script>
+
+    <?php include 'verwaltung/links.php'; echo Links::get_all_html_docs(); ?>
   </head>
   <body>
     <?php include 'header.php'; ?>
@@ -33,6 +33,7 @@
           </div>
     </div>
 
+    <script src="login/registersite.js"></script>
     <script src="login/login_conventions.js"></script>
   </body>
 </html>
