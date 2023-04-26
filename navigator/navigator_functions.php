@@ -34,10 +34,19 @@
     function listFilesAndDirectories($dir) {
         // Überprüfen, ob es sich um ein Verzeichnis handelt
         if (is_dir($dir)) {
+            // Möglichkeit um zum Hauptverzeichnis zu gelangen
+            if ($dir != '.') {
+                $new_dir = getOverFolder($dir);
+    
+                echo    '<div class="d-flex justify-content-center mt-3 mb-3">
+                            <a class="btn btn-secondary" href=\'?dir='.$new_dir.'\' role="button">Übergeordnetes Verzeichnis</a>
+                        </div>';
+            }
+
             // Öffnen des Verzeichnisses
             if ($dh = opendir($dir)) {
                 // Tabellenkopf
-                echo "<table>";
+                echo '<table class="table table-striped">';
                 echo "<tr><th>Name</th><th>Typ</th></tr>";
 
                 // Schleife durch alle Einträge im Verzeichnis
@@ -50,11 +59,6 @@
                 // Schließen des Verzeichnisses
                 closedir($dh);
             }
-        }
-
-        if ($dir != '.') {
-            $new_dir = getOverFolder($dir);
-            echo "<p><a href='?dir=$new_dir'>Übergeordnetes Verzeichnis</a></p>";
         }
     }
 ?>

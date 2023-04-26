@@ -21,7 +21,7 @@ require_once('verwaltung/links.php');
     <form method="GET" action="forum_comments.php">
         <div class="form-group">
             <label for="delete">Forum öffnen:</label>
-            <select class="form-control" id="forum_kuerzel" name="forum_kuerzel">
+            <select class="form-control mb-3" id="forum_kuerzel" name="forum_kuerzel">
                 <?php require 'forum/forum_get_topics.php'; ?>
             </select>
         </div>

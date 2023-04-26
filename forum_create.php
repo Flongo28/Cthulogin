@@ -24,7 +24,7 @@ require 'login/login_check.php';
             <label for="topic">Thema:</label>
             <input type="text" class="form-control" id="topic" name="topic" placeholder="Thema eingeben">
         </div>
-        <button type="submit" class="btn btn-primary">Thema erstellen</button>
+        <button type="submit" class="btn btn-primary mt-3">Thema erstellen</button>
     </form>
 </div>
 </body>

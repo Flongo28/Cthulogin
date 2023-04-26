@@ -14,7 +14,7 @@
 <body>
     <?php include 'header.php'; ?>
 
-    <div class="content">
+    <div class="container mt-3">
         <?php
             // Überprüfen, ob ein Verzeichnis ausgewählt wurde
             if(isset($_GET['dir'])){
@@ -28,8 +28,14 @@
         ?>
 
         <form action="navigator/upload.php" method="post" enctype="multipart/form-data">
-            <input type="file" name="fileToUpload" id="fileToUpload">
-            <input type="submit" value="Upload File" name="submit">
+            <div class="row mb-3">
+                <div class="col-md-8">
+                    <input class="form-control" type="file" id="fileToUpload">
+                </div>
+                <div class="col-md-4">
+                    <input type="submit" class="btn btn-primary btn-block" value="Upload File" name="submit">
+                </div>
+            </div>
         </form>
     </div>
 </body>
