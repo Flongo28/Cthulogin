@@ -1,3 +1,6 @@
+/*
+* Validates the form
+*/
 function validateForm() {
     const password_wdh = document.getElementById('password_wdh').value;
     const password = document.getElementById('password').value;

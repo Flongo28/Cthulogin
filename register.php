@@ -18,7 +18,7 @@
               <form method="POST" action="login/register.php" onsubmit="return validateForm()">
                 <div class="form-group">
                   <label for="name">Name:</label>
-                  <input type="text" class="form-control" id="name" name="name" required>
+                  <input type="text" class="form-control is-valid" id="name" name="name" required>
                   <span id="errorShortName" class="invalid-feedback">Die Eingabe ist zu kurz.</span>
                 </div>
 
