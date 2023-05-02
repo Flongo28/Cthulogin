@@ -41,35 +41,45 @@
     
     function create_forum($kuerzel, $name, $ersteller) {
         $db = get_forum_database();
-    
+
         // Überprüfen, ob das Kürzel bereits verwendet wird
-        $query = "SELECT * FROM Topics WHERE Kuerzel='$kuerzel'";
-        $result = $db->query($query);
+        $query = "SELECT * FROM Topics WHERE Kuerzel=:kuerzel";
+        $stmt = $db->prepare($query);
+        $stmt->bindValue(':kuerzel', $kuerzel, SQLITE3_TEXT);
+        $result = $stmt->execute();
         if ($result->fetchArray()) {
             echo "Kürzel bereits in Verwendung";
             return;
         }
-    
+
         // SQL-Abfrage zum Einfügen des neuen Forums in die Datenbank
-        $query = "INSERT INTO Topics (Kuerzel, Name, Ersteller) VALUES ('$kuerzel', '$name', '$ersteller')";
-        $db->exec($query);
+        $query = "INSERT INTO Topics (Kuerzel, Name, Ersteller) VALUES (:kuerzel, :name, :ersteller)";
+        $stmt = $db->prepare($query);
+        $stmt->bindValue(':kuerzel', $kuerzel, SQLITE3_TEXT);
+        $stmt->bindValue(':name', $name, SQLITE3_TEXT);
+        $stmt->bindValue(':ersteller', $ersteller, SQLITE3_TEXT);
+        $stmt->execute();
         echo "Forum erfolgreich angelegt";
     }
 
     function delete_forum($kuerzel) {
         $db = get_forum_database();
-    
+
         // Überprüfen, ob das Forum existiert
-        $query = "SELECT * FROM Topics WHERE Kuerzel='$kuerzel'";
-        $result = $db->query($query);
+        $query = "SELECT * FROM Topics WHERE Kuerzel=:kuerzel";
+        $stmt = $db->prepare($query);
+        $stmt->bindValue(':kuerzel', $kuerzel, SQLITE3_TEXT);
+        $result = $stmt->execute();
         if (!$result->fetchArray()) {
             echo "Forum nicht gefunden";
             return;
         }
-    
+
         // SQL-Abfrage zum Löschen des Forums aus der Datenbank
-        $query = "DELETE FROM Topics WHERE Kuerzel='$kuerzel'";
-        $db->exec($query);
+        $query = "DELETE FROM Topics WHERE Kuerzel=:kuerzel";
+        $stmt = $db->prepare($query);
+        $stmt->bindValue(':kuerzel', $kuerzel, SQLITE3_TEXT);
+        $stmt->execute();
     }
 
     function get_topics()
@@ -115,6 +125,10 @@
 
     function post_message($topic, $user, $content) {
         $db = get_forum_database();
+
+        $topic = htmlspecialchars($topic, ENT_QUOTES);
+        $user = htmlspecialchars($user, ENT_QUOTES);
+        $content = htmlspecialchars($content, ENT_QUOTES);
     
         $query = "INSERT INTO Messages (Topic, User, Inhalt) VALUES (:topic, :user, :content)";
         $stmt = $db->prepare($query);

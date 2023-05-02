@@ -26,19 +26,25 @@ function get_login_database(){
 
 function register($username, $password){
     $db = get_login_database();
-    // SQL-Abfrage zum Einfügen des neuen Benutzers in die Datenbank
-    $query = "INSERT INTO users (username, hashword) VALUES ('$username', '$password')";
-    $db->exec($query);
+    // Verwendung von vorbereiteten Anweisungen, um SQL-Injektionen zu vermeiden
+    $query = "INSERT INTO users (username, hashword) VALUES (:username, :password)";
+    $stmt = $db->prepare($query);
+    $stmt->bindValue(':username', $username, SQLITE3_TEXT);
+    $stmt->bindValue(':password', $password, SQLITE3_TEXT);
+    $stmt->execute();
 }
 
 function login($username, $password){
     $db = get_login_database();
 
-    // SQL-Abfrage zur Überprüfung des Benutzernamens
-    $username_query = "SELECT * FROM users WHERE username='$username'";
-    $username_result = $db->querySingle($username_query, true);
+    // Verwendung von vorbereiteten Anweisungen, um SQL-Injektionen zu vermeiden
+    $query = "SELECT * FROM users WHERE username=:username";
+    $stmt = $db->prepare($query);
+    $stmt->bindValue(':username', $username, SQLITE3_TEXT);
+    $result = $stmt->execute();
 
     // Überprüfung, ob der Benutzername vorhanden ist
+    $username_result = $result->fetchArray(SQLITE3_ASSOC);
     if (!$username_result) {
         die("Invalid username");
     }
@@ -56,9 +62,11 @@ function login($username, $password){
 function is_username_taken($username) {
     $db = get_login_database();
 
-    // SQL-Abfrage zur Überprüfung, ob der Benutzername bereits in der Datenbank vorhanden ist
-    $query = "SELECT * FROM users WHERE username='$username'";
-    $result = $db->query($query);
+    // Verwendung von vorbereiteten Anweisungen, um SQL-Injektionen zu vermeiden
+    $query = "SELECT * FROM users WHERE username=:username";
+    $stmt = $db->prepare($query);
+    $stmt->bindValue(':username', $username, SQLITE3_TEXT);
+    $result = $stmt->execute();
 
     // Überprüfung, ob der Benutzername bereits vorhanden ist
     if($result->fetchArray()) {
